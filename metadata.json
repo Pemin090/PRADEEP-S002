@@ -1,0 +1,6 @@
+{
+  "name": "Tamil Nadu Smart Irrigation & Groundwater AI System",
+  "description": "AI-based smart irrigation decision support & groundwater conservation platform for all 38 districts of Tamil Nadu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
