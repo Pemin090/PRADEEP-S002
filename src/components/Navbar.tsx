@@ -233,6 +233,39 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             📄 {t.navWeeklyReport}
           </button>
+
+          <button
+            onClick={() => onChangeTab('disease_scanner')}
+            className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all ${
+              activeTab === 'disease_scanner'
+                ? 'bg-emerald-600 text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            🔬 {t.navDiseaseScanner}
+          </button>
+
+          <button
+            onClick={() => onChangeTab('mandi_rates')}
+            className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all ${
+              activeTab === 'mandi_rates'
+                ? 'bg-emerald-600 text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            🏪 {t.navMandiRates}
+          </button>
+
+          <button
+            onClick={() => onChangeTab('pathway_audit')}
+            className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-bold whitespace-nowrap transition-all border ${
+              activeTab === 'pathway_audit'
+                ? 'bg-purple-600 text-white border-purple-400 shadow-md font-extrabold'
+                : 'bg-purple-950/60 text-purple-300 border-purple-800/60 hover:bg-purple-900/60 hover:text-white'
+            }`}
+          >
+            🎯 {t.navPathwayAudit}
+          </button>
         </div>
       </nav>
     </header>

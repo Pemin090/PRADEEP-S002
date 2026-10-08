@@ -12,6 +12,9 @@ export const TRANSLATIONS = {
     navCommunity: 'District & Community',
     navWeeklyReport: 'Weekly Farm Report',
     navTamilFarmer: 'Tamil Farmer Mode (No Graphs)',
+    navDiseaseScanner: 'Crop Disease Scanner',
+    navMandiRates: 'Mandi Market Rates',
+    navPathwayAudit: 'Pathway A & AI Audit',
     navSettings: 'Farm Profile & Setup',
     
     // Status
@@ -162,6 +165,9 @@ export const TRANSLATIONS = {
     navCommunity: 'வட்டார & சமூக சேமிப்பு',
     navWeeklyReport: 'வாராந்திர விவசாய அறிக்கை',
     navTamilFarmer: 'எளிய தமிழ் உழவர் முறை (வரைபடங்கள் அற்றது)',
+    navDiseaseScanner: 'பயிர் நோய் கண்டறிதல்',
+    navMandiRates: 'உழவர் சந்தை & மண்டி விலை',
+    navPathwayAudit: 'திட்டம் A & AI தணிக்கை',
     navSettings: 'விவசாய விவரங்கள் & அமைப்புகள்',
 
     // Status

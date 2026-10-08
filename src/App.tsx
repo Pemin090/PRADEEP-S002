@@ -39,6 +39,9 @@ import { FarmerProfileForm } from './components/FarmerProfileForm';
 import { WaterSavingsTracker } from './components/WaterSavingsTracker';
 import { CropHealthAlert } from './components/CropHealthAlert';
 import { TamilFarmerInterface } from './components/TamilFarmerInterface';
+import { CropDiseaseScanner } from './components/CropDiseaseScanner';
+import { MandiMarketRates } from './components/MandiMarketRates';
+import { PathwayAuditView } from './components/PathwayAuditView';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<Language>('en');
@@ -393,6 +396,29 @@ export default function App() {
             block={activeBlock}
             rec={recommendation}
             budget={waterBudget}
+            currentLang={currentLang}
+          />
+        )}
+
+        {/* Tab 7: AI Crop Disease Scanner & TNAU Treatment */}
+        {activeTab === 'disease_scanner' && (
+          <CropDiseaseScanner
+            currentLang={currentLang}
+            currentCropId={farmerProfile.cropId}
+          />
+        )}
+
+        {/* Tab 8: Live Mandi Market Rates & Uzhavar Sandhai */}
+        {activeTab === 'mandi_rates' && (
+          <MandiMarketRates
+            currentLang={currentLang}
+            initialDistrictId={selectedDistrict.id}
+          />
+        )}
+
+        {/* Tab 9: Pathway A Declaration & AI Interaction Audit */}
+        {activeTab === 'pathway_audit' && (
+          <PathwayAuditView
             currentLang={currentLang}
           />
         )}

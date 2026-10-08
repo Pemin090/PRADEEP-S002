@@ -119,6 +119,65 @@ export interface GroundwaterRiskAssessment {
 
 export type ActionDirective = 'irrigate_now' | 'wait' | 'timed_irrigate';
 
+export type WaterStressLevel = 'low' | 'moderate' | 'high';
+
+export interface AIWaterStressScore {
+  score: number; // e.g. 72 out of 100
+  level: WaterStressLevel; // 'low' | 'moderate' | 'high'
+  labelEn: string; // e.g. "High Stress", "Moderate Stress", "Low Stress"
+  labelTa: string; // e.g. "அதிக நீர் அழுத்தம்", "மிதமான அழுத்தம்", "குறைந்த அழுத்தம்"
+  badgeColor: string;
+  reasonsEn: string[];
+  reasonsTa: string[];
+  metrics: {
+    soilMoisturePercent: number;
+    rainfallProbNext48h: number;
+    cropStageNameEn: string;
+    cropStageNameTa: string;
+    cropSensitivity: 'high' | 'medium' | 'low';
+    groundwaterRiskScore: number;
+    groundwaterCategory: GroundwaterRiskCategory;
+    et0MmPerDay: number;
+  };
+}
+
+export interface ConfidenceCheckItem {
+  id: string;
+  nameEn: string;
+  nameTa: string;
+  status: 'verified' | 'estimated' | 'unavailable';
+  detailEn: string;
+  detailTa: string;
+  weightPercent: number;
+}
+
+export interface AIConfidenceBreakdown {
+  score: number; // e.g. 87%
+  level: 'high' | 'moderate' | 'fair';
+  labelEn: string;
+  labelTa: string;
+  checklist: ConfidenceCheckItem[];
+  transparencyNoteEn: string;
+  transparencyNoteTa: string;
+  hasSoilSensorConnected: boolean;
+}
+
+export interface GroundwaterSafeModeData {
+  isActive: boolean;
+  isAutoEngaged: boolean;
+  groundwaterStatus: GroundwaterStressLevel;
+  groundwaterStatusLabelEn: string;
+  groundwaterStatusLabelTa: string;
+  recommendationTitleEn: string;
+  recommendationTitleTa: string;
+  expectedSavingsLitres: number;
+  expectedPowerSavedKwh: number;
+  reasonEn: string;
+  reasonTa: string;
+  cropSafetyGuaranteed: boolean;
+  waterReductionPercent: number;
+}
+
 export interface IrrigationRecommendation {
   type: RecommendationType;
   headlineEn: string;
@@ -148,6 +207,9 @@ export interface IrrigationRecommendation {
     electricitySavedUnitsKwh: number;
   };
   groundwaterRisk: GroundwaterRiskAssessment;
+  aiWaterStress: AIWaterStressScore;
+  aiConfidence: AIConfidenceBreakdown;
+  groundwaterSafeMode: GroundwaterSafeModeData;
   recommendedDate: string;
   nextCheckDate: string;
   cropGrowthStageEn: string;
